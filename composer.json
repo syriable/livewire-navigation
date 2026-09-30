@@ -1,0 +1,66 @@
+{
+    "name": "syriable/livewire-navigation",
+    "description": "Know which page the user is on, and which page they came from, inside Livewire requests.",
+    "keywords": [
+        "laravel",
+        "livewire",
+        "navigation",
+        "url",
+        "previous-url"
+    ],
+    "homepage": "https://github.com/syriable/livewire-navigation",
+    "license": "MIT",
+    "require": {
+        "php": "^8.4",
+        "illuminate/http": "^12.0|^13.0",
+        "illuminate/routing": "^12.0|^13.0",
+        "illuminate/support": "^12.0|^13.0",
+        "livewire/livewire": "^3.6|^4.0"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.20",
+        "orchestra/testbench": "^10.0|^11.0",
+        "pestphp/pest": "^3.7|^4.0",
+        "pestphp/pest-plugin-laravel": "^3.1|^4.0",
+        "ralphjsmit/livewire-urls": "^1.7",
+        "rector/rector": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Syriable\\Packages\\LivewireNavigation\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Syriable\\Packages\\LivewireNavigation\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "pest",
+        "analyse": "phpstan analyse --memory-limit=1G",
+        "refactor": "rector process --dry-run",
+        "format": "pint --test",
+        "check": [
+            "@format",
+            "@refactor",
+            "@analyse",
+            "@test"
+        ]
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Syriable\\Packages\\LivewireNavigation\\LivewireNavigationServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
