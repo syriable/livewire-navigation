@@ -167,23 +167,18 @@ $this->get('/users', ['Referer' => url('/dashboard')])
 `Livewire::test()` does not perform a page request, so inside it the values
 come from the session.
 
-## Migrating from `ralphjsmit/livewire-urls`
-
-| `livewire-urls` | `livewire-navigation` |
-| --- | --- |
-| `Url::current()` | `Navigation::currentUrl()` |
-| `Url::currentRoute()` | `Navigation::currentRoute()` |
-| `Url::previous()` | `Navigation::previousUrl()` |
-| `Url::previousRoute()` | `Navigation::previousRoute()` |
-| `Url::lastRecorded()` | `Navigation::previousUrl()` — reloads no longer overwrite it |
-| `Url::lastRecordedRoute()` | `Navigation::previousRoute()` |
-
-Remove `LivewireUrlsMiddleware` from your middleware groups.
-
 ## Documentation
 
-The research, design decisions and specification behind this package are in
-[`docs/research`](docs/research).
+- [Architecture](docs/architecture.md) — classes, data flow and design decisions
+- [Edge cases and security](docs/edge-cases.md) — expected behaviour for every case
+- [Livewire internals](docs/livewire-internals.md) — what Livewire tracks about the page
+- [Laravel request lifecycle](docs/request-lifecycle.md) — why Laravel's helpers change meaning
+- [Testing](docs/testing.md) — how the test suite simulates the browser
+- [Non-goals](docs/non-goals.md) — what the package deliberately leaves out
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md).
 
 ## Development
 

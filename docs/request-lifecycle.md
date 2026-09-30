@@ -1,4 +1,4 @@
-# 03 — Laravel request lifecycle
+# Laravel request lifecycle
 
 Source inspected: **laravel/framework 13.34.0** (12.69.3 for comparison; the
 relevant code is identical).

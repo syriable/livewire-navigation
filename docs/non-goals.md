@@ -1,6 +1,6 @@
-# 11 — DO NOT BUILD
+# Non-goals
 
-Includes the future-architecture review (track 14).
+What this package deliberately does not do, and why.
 
 ## Already provided by Laravel
 
@@ -24,10 +24,9 @@ Includes the future-architecture review (track 14).
 | JavaScript / tab IDs | Snapshot memo + `Referer` already give per-tab context |
 | Config file | No option has a meaningful second value |
 | Events (`PageVisited`) | No use case; listeners can use Laravel middleware |
-| History of N pages, `lastRecorded()` | Only needed to repair reload handling, which is now correct |
+| History of N pages | The previous page survives reloads and redirects, so one step back is enough |
 | Route parameters / route objects | Recoverable with `Route::getRoutes()->match()` on the URL when needed |
 | Contracts / repositories / storage drivers | One implementation, one store |
-| `spatie/laravel-package-tools` | Nothing to publish |
 | Blade directives, helpers | Facade and DI are enough |
 | Livewire 2 / Laravel ≤ 11 support | No memo in Livewire 2; outside target stack |
 | A testing fake | Tests can drive real requests; the rules are cheap to exercise |

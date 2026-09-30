@@ -1,4 +1,4 @@
-# 06 — Edge cases and security
+# Edge cases and security
 
 "Recorded" means the request becomes the session's latest visit. "Test"
 names the file in `tests/Feature` that verifies the row.
@@ -10,7 +10,7 @@ names the file in `tests/Feature` that verifies the row.
 | GET page (2xx, `text/html`) | Recorded | PageVisitTest |
 | POST/PUT/PATCH/DELETE | Not recorded; current = page it was sent from | RecordingRulesTest |
 | HEAD | Not recorded | RecordingRulesTest |
-| Redirect response | Not recorded; destination is, with the page before the redirect as previous | RecordingRulesTest, RegressionTest |
+| Redirect response | Not recorded; destination is, with the page before the redirect as previous | RecordingRulesTest |
 | `redirect()->back()` after failed validation | Page reloaded; previous kept | RecordingRulesTest |
 | Successful form POST → redirect | Destination's previous = the form page | RecordingRulesTest |
 
@@ -37,7 +37,7 @@ names the file in `tests/Feature` that verifies the row.
 | Route without session | Nothing recorded, no error; Referer still used | IntegrationTest |
 | Expired / empty session | previous = Referer or null | PageVisitTest |
 | Malformed session data | Ignored | IntegrationTest |
-| Multiple tabs | Page requests use each tab's `Referer`; Livewire updates use each component's snapshot | LivewireUpdateTest, RegressionTest |
+| Multiple tabs | Page requests use each tab's `Referer`; Livewire updates use each component's snapshot | LivewireUpdateTest |
 | Concurrent requests | Last page response wins the session slot; only affects the fallback | by design |
 
 ## URLs

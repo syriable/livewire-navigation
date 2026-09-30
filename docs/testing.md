@@ -1,4 +1,4 @@
-# 09 — Test strategy
+# Testing
 
 ## Principles
 
@@ -21,12 +21,11 @@
 | `RecordingRulesTest` | Middleware, Navigation |
 | `UrlShapeTest` | URLs, Security |
 | `IntegrationTest` | Service provider, Session |
-| `RegressionTest` | Regression against `ralphjsmit/livewire-urls` running side by side |
 
 Compatibility is covered by running the whole suite on every supported
 Laravel × Livewire combination in CI.
 
-## Matrix (derived from 12-final-specification)
+## Behaviour matrix
 
 | Scenario | current URL | previous URL |
 | --- | --- | --- |

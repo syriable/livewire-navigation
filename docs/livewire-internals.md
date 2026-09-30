@@ -1,4 +1,4 @@
-# 02 — Livewire analysis
+# Livewire internals
 
 Source inspected: **livewire/livewire 4.4.7** (and 3.8.10 for comparison).
 Paths are relative to the package root.

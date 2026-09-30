@@ -1,6 +1,6 @@
-# 08 — Architecture
+# Architecture
 
-Includes the minimalism review (track 13) and compatibility decision (track 11).
+How the package is put together, and why each piece exists.
 
 ## Classes
 
@@ -45,16 +45,16 @@ Any other request (form POST, fetch, …)
                Navigation::* resolves from session[livewire-navigation]
 ```
 
-## Minimalism review
+## Design decisions
 
 | Question | Answer |
 | --- | --- |
-| Can Laravel already do this? | No: one session slot, not per tab; `url()->previous()` changes meaning inside Livewire (see 03). |
-| Can Livewire already do this? | Only the current *path* (see 02). |
+| Can Laravel already do this? | No: one session slot, not per tab; `url()->previous()` changes meaning inside Livewire (see [request-lifecycle.md](request-lifecycle.md)). |
+| Can Livewire already do this? | Only the current *path* (see [livewire-internals.md](livewire-internals.md)). |
 | Do we need middleware? | Yes. Writing the session must happen inside `StartSession`, after the response is known. |
 | Do we need a facade? | Kept: it is the idiomatic call-site for a request-scoped read in components; one 20-line file. |
-| Do we need configuration? | No. Nothing has a sensible second value. Removed. |
-| Do we need a service provider? | Yes, for auto-registration; a plain `ServiceProvider`, no package-tools dependency. |
+| Do we need configuration? | No. Nothing has a sensible second value. |
+| Do we need a service provider? | Yes, for auto-registration; a plain Laravel `ServiceProvider`. |
 | Session abstraction? | No; `$request->session()` directly. |
 | JavaScript? | No; the snapshot memo and `Referer` already carry per-tab context. |
 | Value objects? | Two tiny internal ones, because the same (url, route, previous) tuple travels through session, memo and resolution. |
@@ -69,7 +69,7 @@ Any other request (form POST, fetch, …)
 - Livewire listeners resolve the service through the global container at call
   time, never through a captured instance.
 
-## Compatibility decision
+## Compatibility
 
 | | Status | Reason |
 | --- | --- | --- |
